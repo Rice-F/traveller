@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <div class="">
@@ -22,30 +22,8 @@ item-img-wrapper
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-        title: '南京海底世界',
-        desc: '带孩子一起去的海底世界从新街口打车25元就到了，比较方便，进去后孩子玩的很开心还看了海狮和海豚表演，里面不是很大，但只要孩子玩的开心就好啦！'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-        title: '南京海底世界',
-        desc: '带孩子一起去的海底世界从新街口打车25元就到了，比较方便，进去后孩子玩的很开心还看了海狮和海豚表演，里面不是很大，但只要孩子玩的开心就好啦！'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-        title: '南京海底世界',
-        desc: '带孩子一起去的海底世界从新街口打车25元就到了，比较方便，进去后孩子玩的很开心还看了海狮和海豚表演，里面不是很大，但只要孩子玩的开心就好啦！'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-        title: '南京海底世界',
-        desc: '带孩子一起去的海底世界从新街口打车25元就到了，比较方便，进去后孩子玩的很开心还看了海狮和海豚表演，里面不是很大，但只要孩子玩的开心就好啦！'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -53,14 +31,13 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/mixins.styl'
   .recommend-title
-    margin-top .2rem
     line-height .8rem
     background #eee
     text-indent .2rem
    .item-img-wrapper
      overflow hidden
      height 0
-     padding-bottom 33.9%
+     padding-bottom 37.09%
     .item-img
       width 100%
   .item-info

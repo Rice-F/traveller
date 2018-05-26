@@ -1,8 +1,11 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper
+      :options="swiperOption"
+      v-if="showSwiper"
+    >
       <swiper-slide
-        v-for="item of swiperList"
+        v-for="item of list"
         :key="item.id"
       >
         <img class="swiper-img" alt="" :src="item.imgUrl">
@@ -15,25 +18,21 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data: function () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
         autoplay: 3000
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'https://n2-q.mafengwo.net/s11/M00/09/73/wKgBEFr9YtGATpdRAAewM27SB3w73.jpeg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90'
-      },
-      {
-        id: '0002',
-        imgUrl: 'https://n2-q.mafengwo.net/s11/M00/84/F5/wKgBEFr7hDqAc7Q-AAe4iFdF5Pg31.jpeg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90'
-      },
-      {
-        id: '0003',
-        imgUrl: 'https://n4-q.mafengwo.net/s11/M00/04/A0/wKgBEFr6mmaAPEisAAeUDvn--Hc21.jpeg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90'
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
