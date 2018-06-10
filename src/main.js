@@ -6,6 +6,7 @@ import router from './router'
 // 移动端300ms点击优化
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 import 'styles/reset.css'
 // 解决2、3倍屏的1px边框问题
 import 'styles/border.css'
@@ -20,6 +21,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
