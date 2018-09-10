@@ -2,6 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
+      <!-- 默认<router-link>渲染成<a>，加上tag属性就可以自己选择渲染标签 -->
       <router-link
         tag="li"
         class="item  border-bottom"

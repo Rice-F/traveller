@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
+      // 发送ajax获取页面所有数据，axios返回一个promise对象
       axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },

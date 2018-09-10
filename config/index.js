@@ -12,7 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
+        // 当请求api目录时，把请求转发到本地8080端口
         target: 'http://localhost:8080',
+        // 如果请求地址以api开头，那么替换为本地mock路径
         pathRewrite: {
           '^/api': '/static/mock'
         }

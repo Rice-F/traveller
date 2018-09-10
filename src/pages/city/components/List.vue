@@ -60,6 +60,7 @@ export default {
   methods: {
     handleCheckoutCity (city) {
       this.checkoutCity(city)
+      // router-link中页面跳转的功能
       this.$router.push('/')
     },
     ...mapMutations(['checkoutCity'])
@@ -68,8 +69,10 @@ export default {
     this.scroll = new BScroll(this.$refs.wrapper)
   },
   watch: {
+    // 监听父组件传过来的letter是否变化
     letter () {
       if (this.letter) {
+        // 获取被点击的对应元素
         const element = this.$refs[this.letter][0]
         this.scroll.scrollToElement(element)
       }

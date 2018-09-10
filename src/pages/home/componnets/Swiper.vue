@@ -31,6 +31,9 @@ export default {
     }
   },
   computed: {
+    // 一开始还没获取到数据时，list是个空数组，所以swiper遍历空数组显示到网页上，就不是从第一张图片开始轮播
+    // 在遍历之前先判断下是否获取到轮播图数据，如果获取到了再创建轮播
+    // 模板里尽量不要出现逻辑性代码，因此在这里先计算好
     showSwiper () {
       return this.list.length
     }
@@ -45,7 +48,7 @@ export default {
     overflow hidden
     width 100%
     height 0
-    padding-bottom 56%             /*以上的写法：相对图片宽度的33%，提前撑开图片的高度所占位置*/
+    padding-bottom 31.25%             /*以上的写法：相对图片宽度的33%，提前撑开图片的高度所占位置*/
     background #eee
     .swiper-img
       width 100%

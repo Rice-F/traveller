@@ -53,6 +53,7 @@ export default {
     ...mapMutations(['checkoutCity'])
   },
   computed: {
+    // 模板里尽量不要出现逻辑部分，因此将判断部分写在这
     hasNoItem () {
       return !this.list.length
     }
@@ -70,6 +71,7 @@ export default {
         const result = []
         for (let i in this.cities) {
           this.cities[i].forEach((value) => {
+            // 如果在spell或name数据里能搜索到输入的keyword
             if (value.spell.indexOf(this.keyword) > -1 ||
                 value.name.indexOf(this.keyword) > -1) {
               result.push(value)

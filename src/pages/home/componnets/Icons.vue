@@ -37,10 +37,14 @@ export default {
     }
   },
   computed: {
+    // 计算出图标展示页数
     pages () {
       const pages = []
+      // 遍历icon数据进行分页
       this.list.forEach((item, index) => {
+        // 每一页只展示8个icon
         const page = Math.floor(index / 8)
+        // 每一页的第一项一开始肯定是没数据的，因此手动创建一个数组用来保存当前页数据
         if (!pages[page]) {
           pages[page] = []
         }
@@ -57,16 +61,16 @@ export default {
   @import '~styles/mixins.styl'
   .icons >>> swiper-container
     height 0
-    padding-bottom 50%
+    padding-bottom 50%           /* 这里表示相对.icons默认100%宽度的50%，形成宽高比2:1 */
   .icons
     margin-top .1rem
     .icon
       position relative
-      ocerflow hidden
+      overflow hidden
       float left
-      width 25%
+      width 25%               /* 相对父元素宽度的25% */
       height 0
-      padding-bottom 25%
+      padding-bottom 25%       /* 和宽度形成宽高比，1:1 */
       .icon-img
         position absolute
         top 0
@@ -88,5 +92,5 @@ export default {
         line-height .44rem
         text-align center
         color $darkTextColor
-        ellipse()
+        ellipse()            /* 当文字过长时，以...显示规定长度以外的内容 */
 </style>
