@@ -45,7 +45,12 @@ export default {
     }
   },
   activated () {
+    // 绑定在window的全局事件，会对所有组件产生影响
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    // 当页面销毁或关闭时，取消绑定在window上的scroll事件
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
