@@ -4,17 +4,17 @@
       class="banner"
       @click="handleShowGallary"
     >
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1604/78/78873494f26e554090.water.jpg_600x330_d5e0d52e.jpg" alt="">
+      <img class="banner-img" :src="bannerImage" alt="">
       <div class="banner-info">
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe604;</span>
-          33
+          {{this.bannerImages.length}}
         </div>
-        <div class="banner-title">京东石林峡(AAAA景区)</div>
+        <div class="banner-title">{{this.sightName}}</div>
       </div>
     </div>
     <common-gallary
-      :imgs="imgs"
+      :imgs="bannerImages"
       v-show="showGallary"
       @close="handleGallaryInvisible"
     ></common-gallary>
@@ -29,12 +29,13 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImage: String,
+    bannerImages: Array
+  },
   data () {
     return {
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1501/58/84f947b276d3794066dda3415d3be9ee.water.jpg_r_800x800_dd3651b1.jpg',
-        'http://img1.qunarzz.com/sight/p0/1508/43/fb45a89b503cc6a60b71a705249eeb46.water.jpg_r_800x800_7b8289b2.jpg'
-      ],
       showGallary: false
     }
   },

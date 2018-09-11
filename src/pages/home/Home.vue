@@ -59,6 +59,7 @@ export default {
     this.getHomeInfo()
   },
   activated () {
+    // 当设置过<keep-alive>之后，打开过的页面会被缓存，已有缓存的情况下，不会再执行mounted，但是会执行activited
     if (this.lastCity !== this.city) {
       this.lastCity = this.city
       this.getHomeInfo()
